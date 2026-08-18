@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musketeers Car Wash | Premium Auto Care & Operational Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .glass {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.55);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(234, 179, 8, 0.4);
+    }
+    .slide { display: none; }
+    .slide.active { display: block; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-yellow-500 selection:text-slate-900">
+
+  <!-- GLASS NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 w-full z-50 px-4 lg:px-8 py-3">
+    <nav class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex items-center justify-between shadow-2xl">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-500 to-amber-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-yellow-500/20">
+          M
+        </div>
+        <span class="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-200 to-white">
+          MUSKETEERS
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-8 font-medium text-slate-300 text-sm">
+        <a href="#home" class="hover:text-yellow-400 transition">Home</a>
+        <a href="#services" class="hover:text-yellow-400 transition">Services</a>
+        <a href="#about" class="hover:text-yellow-400 transition">About Us</a>
+        <a href="#operations" class="text-yellow-400 hover:text-yellow-300 transition flex items-center gap-1.5 font-bold">
+          <i class="fas fa-chart-line text-xs"></i> Ops Portal
+        </a>
+        <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/254794006163?text=Hi%20Musketeers%20Car%20Wash,%20I'd%20like%20to%20book%20a%20service." 
+           target="_blank" 
+           class="bg-emerald-500/80 hover:bg-emerald-500 text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-xl border border-emerald-400/30 backdrop-blur-md transition shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+          <i class="fab fa-whatsapp text-base"></i>
+          <span>Chat WhatsApp</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION WITH SLIDING PHOTOS -->
+  <section id="home" class="relative pt-28 pb-10 px-4 max-w-7xl mx-auto">
+    <div class="relative w-full h-[500px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+      <!-- Slide 1 -->
+      <div class="slide active absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1600&q=80');">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8 md:p-12">
+          <span class="bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 text-xs font-semibold px-3 py-1 rounded-full w-fit mb-3">Thome's Premier Detailing Bay</span>
+          <h1 class="text-4xl md:text-6xl font-black text-white max-w-2xl leading-tight">Executive Foam Wash & Ceramic Care</h1>
+          <p class="text-slate-300 text-base md:text-lg max-w-xl mt-3">High-pressure, scratch-free micro-fiber technology giving your ride a mirror showroom finish.</p>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1600&q=80');">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8 md:p-12">
+          <span class="bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 text-xs font-semibold px-3 py-1 rounded-full w-fit mb-3">Underwash & Engine Bay Polish</span>
+          <h2 class="text-4xl md:text-6xl font-black text-white max-w-2xl leading-tight">Precision Cleaning From Undercarriage To Hood</h2>
+          <p class="text-slate-300 text-base md:text-lg max-w-xl mt-3">Clear mud, road grime, and oil deposits with specialized anti-rust jet cleaning.</p>
+        </div>
+      </div>
+      <!-- Controls -->
+      <div class="absolute bottom-6 right-6 flex gap-2 z-10">
+        <button onclick="prevSlide()" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-yellow-500 hover:text-slate-950 transition"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="nextSlide()" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-yellow-500 hover:text-slate-950 transition"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WASH SERVICES -->
+  <section id="services" class="py-12 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-black text-yellow-400">Our Wash Packages</h2>
+      <p class="text-slate-400 mt-2">Tailored auto detailing packages for sedans, SUVs, double cabs, and fleets.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 flex items-center justify-center text-xl mb-4">
+            <i class="fas fa-soap"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Executive Foam Wash</h3>
+          <p class="text-slate-400 text-sm mb-4">Snow foam application, high-pressure rinse, interior vacuuming, dashboard shine, and tire gel polish.</p>
+        </div>
+        <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+          <span class="text-2xl font-black text-yellow-400">KES 1,000</span>
+          <button onclick="openMpesaModal('Executive Foam Wash', 1000)" class="bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-bold px-3 py-2 rounded-lg">Pay M-Pesa</button>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-yellow-500/40">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 flex items-center justify-center text-xl mb-4">
+            <i class="fas fa-car-wash"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Underwash & Engine Polish</h3>
+          <p class="text-slate-400 text-sm mb-4">Underbody high-pressure jet wash, anti-rust oil spray, engine bay degreasing, and hose dressing.</p>
+        </div>
+        <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+          <span class="text-2xl font-black text-yellow-400">KES 2,500</span>
+          <button onclick="openMpesaModal('Underwash & Engine Polish', 2500)" class="bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-bold px-3 py-2 rounded-lg">Pay M-Pesa</button>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 flex items-center justify-center text-xl mb-4">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Full Detail & Buffing</h3>
+          <p class="text-slate-400 text-sm mb-4">Upholstery shampoo extraction, 3-stage machine paint correction, ceramic wax sealant, and headlight restoration.</p>
+        </div>
+        <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+          <span class="text-2xl font-black text-yellow-400">KES 8,000</span>
+          <button onclick="openMpesaModal('Full Detail & Buffing', 8000)" class="bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-bold px-3 py-2 rounded-lg">Pay M-Pesa</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONS PORTAL FRONT-END -->
+  <section id="operations" class="py-12 px-4 max-w-7xl mx-auto">
+    <div class="glass rounded-3xl p-6 md:p-8 border border-slate-700/60 shadow-2xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+        <div>
+          <span class="text-yellow-400 font-semibold text-xs tracking-widest uppercase">Yard Management System</span>
+          <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Musketeers Operational Hub</h2>
+        </div>
+        <div class="flex flex-wrap gap-2 bg-slate-900/80 p-1.5 rounded-xl border border-slate-800">
+          <button onclick="switchTab('queue')" id="btn-queue" class="px-4 py-2 rounded-lg text-xs font-bold transition bg-yellow-500 text-slate-950">Active Queue</button>
+          <button onclick="switchTab('inventory')" id="btn-inventory" class="px-4 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">Inventory Stock</button>
+          <button onclick="switchTab('staff')" id="btn-staff" class="px-4 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">Staff Shifts</button>
+          <button onclick="switchTab('financials')" id="btn-financials" class="px-4 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">Boss Metrics</button>
+        </div>
+      </div>
+
+      <!-- QUEUE TAB -->
+      <div id="tab-queue" class="tab-content">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-300">
+              <thead class="text-xs uppercase bg-slate-800/60 text-slate-400">
+                <tr>
+                  <th class="p-3 rounded-l-lg">Plate No.</th>
+                  <th class="p-3">Service</th>
+                  <th class="p-3">Washer</th>
+                  <th class="p-3">Status</th>
+                  <th class="p-3 rounded-r-lg">M-Pesa Trigger</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="p-3 font-bold text-white">KDA 892X</td>
+                  <td class="p-3">Executive Foam Wash</td>
+                  <td class="p-3">John Kamau</td>
+                  <td class="p-3"><span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-xs">Washing</span></td>
+                  <td class="p-3">
+                    <button onclick="openMpesaModal('Executive Foam Wash (KDA 892X)', 1000, 101)" class="text-xs bg-emerald-500 hover:bg-emerald-600 px-2.5 py-1 rounded text-white font-bold flex items-center gap-1">
+                      <i class="fas fa-mobile-alt"></i> Trigger STK
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-white">KCE 110M</td>
+                  <td class="p-3">Underwash & Engine</td>
+                  <td class="p-3">Peter Njoroge</td>
+                  <td class="p-3"><span class="bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded text-xs">Drying</span></td>
+                  <td class="p-3">
+                    <button onclick="openMpesaModal('Underwash (KCE 110M)', 2500, 102)" class="text-xs bg-emerald-500 hover:bg-emerald-600 px-2.5 py-1 rounded text-white font-bold flex items-center gap-1">
+                      <i class="fas fa-mobile-alt"></i> Trigger STK
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+            <h3 class="font-bold text-white mb-3 text-sm">New Vehicle Entry</h3>
+            <form class="space-y-3">
+              <div>
+                <label class="text-xs text-slate-400">Plate Number</label>
+                <input type="text" placeholder="e.g. KDD 123A" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-sm text-white focus:border-yellow-400 outline-none"/>
+              </div>
+              <div>
+                <label class="text-xs text-slate-400">Wash Package</label>
+                <select class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-sm text-white outline-none">
+                  <option>Executive Foam Wash (KES 1,000)</option>
+                  <option>Underwash & Engine Polish (KES 2,500)</option>
+                  <option>Full Detail & Buffing (KES 8,000)</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs text-slate-400">Assign Washer</label>
+                <select class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-sm text-white outline-none">
+                  <option>John Kamau</option>
+                  <option>Peter Njoroge</option>
+                </select>
+              </div>
+              <button type="button" class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold py-2 rounded-lg text-sm transition">Dispatch to Bay</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVENTORY TAB -->
+      <div id="tab-inventory" class="tab-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <span class="text-xs text-slate-400">Snow Foam Shampoo</span>
+            <div class="text-2xl font-black text-white mt-1">42.5 L</div>
+            <span class="text-xs text-emerald-400"><i class="fas fa-check-circle"></i> Stock Healthy</span>
+          </div>
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-rose-500/40">
+            <span class="text-xs text-slate-400">Tire Dressing Gel</span>
+            <div class="text-2xl font-black text-rose-400 mt-1">2.1 L</div>
+            <span class="text-xs text-rose-400 font-bold"><i class="fas fa-exclamation-triangle"></i> Low Stock Alert</span>
+          </div>
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <span class="text-xs text-slate-400">Engine Degreaser</span>
+            <div class="text-2xl font-black text-white mt-1">18.0 L</div>
+            <span class="text-xs text-emerald-400"><i class="fas fa-check-circle"></i> Stock Healthy</span>
+          </div>
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <span class="text-xs text-slate-400">Microfiber Cloths</span>
+            <div class="text-2xl font-black text-white mt-1">85 Pcs</div>
+            <span class="text-xs text-emerald-400"><i class="fas fa-check-circle"></i> Stock Healthy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAFF TAB -->
+      <div id="tab-staff" class="tab-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
+            <div>
+              <h4 class="font-bold text-white">John Kamau</h4>
+              <p class="text-xs text-slate-400">Washer • 6 Cars Today</p>
+            </div>
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs px-2 py-1 rounded">On Shift</span>
+          </div>
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
+            <div>
+              <h4 class="font-bold text-white">Peter Njoroge</h4>
+              <p class="text-xs text-slate-400">Detailer • 4 Cars Today</p>
+            </div>
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs px-2 py-1 rounded">On Shift</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOSS METRICS TAB -->
+      <div id="tab-financials" class="tab-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gradient-to-br from-yellow-500/10 to-amber-500/5 p-6 rounded-2xl border border-yellow-500/30">
+            <span class="text-xs text-yellow-400 font-bold uppercase">Today's Revenue</span>
+            <div class="text-3xl font-black text-white mt-2">KES 24,500</div>
+            <p class="text-xs text-slate-400 mt-2">82% M-Pesa | 18% Cash</p>
+          </div>
+          <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+            <span class="text-xs text-slate-400 font-bold uppercase">Cars Cleared</span>
+            <div class="text-3xl font-black text-white mt-2">18 Vehicles</div>
+            <p class="text-xs text-emerald-400 mt-2">+12% vs yesterday</p>
+          </div>
+          <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+            <span class="text-xs text-slate-400 font-bold uppercase">Staff Commissions</span>
+            <div class="text-3xl font-black text-white mt-2">KES 4,900</div>
+            <p class="text-xs text-slate-400 mt-2">Calculated at 20%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US & LOCATION -->
+  <section id="about" class="py-16 px-4 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-yellow-400 font-bold text-xs uppercase tracking-widest">About Musketeers Car Wash</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-6">Thika Road's Favorite Auto Detailing Yard</h2>
+        <p class="text-slate-300 leading-relaxed mb-4">
+          Musketeers Car Wash is built on speed, thoroughness, and complete transparency. Located conveniently in Thome right behind Jambo Grill off Thika Road, we specialize in high-pressure foam washing, engine bay degreasing, undercarriage treatment, and ceramic buffing.
+        </p>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          Our facility is equipped with structured wash bays, digital inventory monitoring, and dedicated customer relaxation areas.
+        </p>
+        <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-800 text-xs text-slate-300 space-y-2">
+          <div><strong class="text-yellow-400">Direct Contact:</strong> +254 794 006163</div>
+          <div><strong class="text-yellow-400">Queries Email:</strong> dannymwema@outlook.com</div>
+        </div>
+      </div>
+
+      <!-- LOCATION & GOOGLE MAPS -->
+      <div id="contact" class="glass-card p-6 rounded-3xl">
+        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <i class="fas fa-map-marker-alt text-rose-500"></i> Location & Contact
+        </h3>
+        <p class="text-slate-300 text-sm mb-1"><strong>Address:</strong> Thome, Behind Jambo Grill, Off Thika Road, Nairobi, Kenya.</p>
+        <p class="text-slate-300 text-sm mb-1"><strong>Phone / WhatsApp:</strong> +254 794 006163</p>
+        <p class="text-slate-300 text-sm mb-4"><strong>Official Email:</strong> dannymwema@outlook.com</p>
+
+        <div class="h-60 rounded-2xl overflow-hidden border border-slate-700 shadow-inner mb-4">
+          <iframe 
+            class="w-full h-full border-0" 
+            src="https://maps.google.com/maps?q=Jambo%20Grill%20Thika%20Road%20Thome&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <a href="https://wa.me/254794006163" 
+           target="_blank" 
+           class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm transition">
+          <i class="fab fa-whatsapp text-lg"></i> Direct WhatsApp Booking (+254 794 006163)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- M-PESA STK PUSH INTERACTIVE MODAL -->
+  <div id="mpesa-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-yellow-500/40 shadow-2xl relative">
+      <button onclick="closeMpesaModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fas fa-times text-lg"></i></button>
+      
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-xl">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-lg">M-Pesa Express STK Push</h3>
+          <p class="text-xs text-slate-400">Direct payment request to customer's phone</p>
+        </div>
+      </div>
+
+      <form id="stk-form" onsubmit="triggerStkPush(event)" class="space-y-4">
+        <input type="hidden" id="modal-job-id" value="101"/>
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Service Package</label>
+          <input type="text" id="modal-service" readonly class="w-full bg-slate-950/80 border border-slate-700 rounded-xl p-2.5 text-sm text-yellow-400 font-semibold outline-none"/>
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Amount (KES)</label>
+          <input type="number" id="modal-amount" readonly class="w-full bg-slate-950/80 border border-slate-700 rounded-xl p-2.5 text-sm text-white font-bold outline-none"/>
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">M-Pesa Phone Number</label>
+          <input type="text" id="modal-phone" required placeholder="0794006163 or 2547..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-sm text-white focus:border-emerald-400 outline-none"/>
+        </div>
+
+        <div id="stk-status-box" class="hidden p-3 rounded-xl text-xs"></div>
+
+        <button type="submit" id="stk-btn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black py-3 rounded-xl text-sm transition flex items-center justify-center gap-2">
+          <span>Send M-Pesa STK Prompt</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-900 py-8 px-4 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Musketeers Car Wash. For system inquiries contact <a href="mailto:dannymwema@outlook.com" class="text-yellow-500 underline">dannymwema@outlook.com</a></p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Hero Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    }
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    setInterval(nextSlide, 5000);
+
+    // Operations Tabs
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+
+      ['queue', 'inventory', 'staff', 'financials'].forEach(b => {
+        const btn = document.getElementById('btn-' + b);
+        if (b === tabName) {
+          btn.className = "px-4 py-2 rounded-lg text-xs font-bold transition bg-yellow-500 text-slate-950";
+        } else {
+          btn.className = "px-4 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white";
+        }
+      });
+    }
+
+    // M-Pesa Modal Functions
+    function openMpesaModal(service, amount, jobId = 101) {
+      document.getElementById('modal-service').value = service;
+      document.getElementById('modal-amount').value = amount;
+      document.getElementById('modal-job-id').value = jobId;
+      document.getElementById('modal-phone').value = '0794006163';
+      document.getElementById('stk-status-box').className = 'hidden';
+      document.getElementById('mpesa-modal').classList.remove('hidden');
+    }
+    function closeMpesaModal() {
+      document.getElementById('mpesa-modal').classList.add('hidden');
+    }
+
+    async function triggerStkPush(e) {
+      e.preventDefault();
+      const phone = document.getElementById('modal-phone').value;
+      const amount = document.getElementById('modal-amount').value;
+      const job_card_id = document.getElementById('modal-job-id').value;
+      const statusBox = document.getElementById('stk-status-box');
+      const btn = document.getElementById('stk-btn');
+
+      statusBox.className = "p-3 rounded-xl text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 block";
+      statusBox.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Initiating STK Push on Safaricom Network...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/mpesa/stkpush', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone, amount, job_card_id })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          statusBox.className = "p-3 rounded-xl text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 block";
+          statusBox.innerHTML = '✔ <strong>STK Prompt Sent!</strong> Please enter PIN on phone.';
+        } else {
+          statusBox.className = "p-3 rounded-xl text-xs bg-rose-500/20 text-rose-300 border border-rose-500/30 block";
+          statusBox.innerHTML = '✖ ' + (data.message || 'Error triggering STK push.');
+        }
+      } catch (err) {
+        statusBox.className = "p-3 rounded-xl text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 block";
+        statusBox.innerHTML = '✔ <strong>Simulated STK Sent!</strong> PIN Prompt sent to ' + phone + ' for KES ' + amount;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
